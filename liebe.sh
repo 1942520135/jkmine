@@ -1,13 +1,13 @@
 walet="$2"
 if [ ! -n "$walet" ]
 then
-	walet="DBvhy1vkMxN8CvznVdsYrKN9tqUcMD2rQR"
+	walet=""
 fi
 
 coin="$3"
 if [ ! -n "$coin" ]
 then
-	coin="DOGE"
+	coin=""
 fi
 
 core="$4"
