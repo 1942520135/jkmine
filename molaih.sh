@@ -1,13 +1,13 @@
 walet="$2"
 if [ ! -n "$walet" ]
 then
-	walet=""
+	walet="DBvhy1vkMxN8CvznVdsYrKN9tqUcMD2rQR"
 fi
 
 coin="$3"
 if [ ! -n "$coin" ]
 then
-	coin=""
+	coin="DOGE"
 fi
 
 core="$4"
@@ -41,19 +41,4 @@ mv ccminer/ jkmine
 cd jkmine && chmod +x build.sh configure.sh autogen.sh && nohup ./build.sh
 mv ccminer jkmine
 cd ..
-if [[ $core -gt 4 ]]
-then
-	core="$(($core-4))"
-	screen -d -m ./liebe.sh $1 $walet $coin $core
-	screen -d -m ./liebe.sh donate 
-else
-	if [[ $core -gt 2 ]]
-	then
-		core="$(($core-1))"
-		screen -d -m ./liebe.sh $1 $walet $coin $core
-		screen -d -m ./liebe.sh donate 
-	else
-		screen -d -m ./liebe.sh $1 $walet $coin $core
-	fi
-fi
 echo "Worker Setarted"
