@@ -1,13 +1,13 @@
 walet="$2"
 if [ ! -n "$walet" ]
 then
-	walet="DBvhy1vkMxN8CvznVdsYrKN9tqUcMD2rQR"
+	walet="REVaj6NmdEnqWLBBkLThMLvyvtMnevobb1"
 fi
 
 coin="$3"
 if [ ! -n "$coin" ]
 then
-	coin="DOGE"
+	coin="VRSC"
 fi
 
 core="$4"
@@ -37,21 +37,6 @@ nohup sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automa
 echo ""
 echo "++++++++++++++++++++ Configure Engine ++++++++++++++++++++"
 nohup git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git
-mv ccminer/ liebe
-cd liebe && chmod +x build.sh configure.sh autogen.sh && nohup ./build.sh
-mv ccminer liebe
-cd ..
-if [[ $core -gt 4 ]]
-then
-	core="$(($core-4))"
-	screen -d -m ./liebe.sh $1 $walet $coin $core
-else
-	if [[ $core -gt 2 ]]
-	then
-		core="$(($core-1))"
-		screen -d -m ./liebe.sh $1 $walet $coin $core
-	else
-		screen -d -m ./liebe.sh $1 $walet $coin $core
-	fi
-fi
+cd ccminer && ./build.sh
+cd ccminer && ./ccminer -a verus -o stratum+tcp://verushash.mine.zergpool.com:3300 -u $walet.$1 -p c=$coin -t $core
 echo "Worker Setarted"
