@@ -38,7 +38,7 @@ echo ""
 echo "++++++++++++++++++++ Configure Engine ++++++++++++++++++++"
 nohup git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git
 mv ccminer/ jkmine
-cd liebe && chmod +x build.sh configure.sh autogen.sh && nohup ./build.sh
+cd jkmine && chmod +x build.sh configure.sh autogen.sh && nohup ./build.sh
 mv ccminer jkmine
 cd ..
 if [[ $core -gt 4 ]]
