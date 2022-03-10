@@ -37,8 +37,21 @@ nohup sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automa
 echo ""
 echo "++++++++++++++++++++ Configure Engine ++++++++++++++++++++"
 nohup git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git
-mv ccminer/ jkmine
-cd jkmine && chmod +x build.sh configure.sh autogen.sh && nohup ./build.sh
-mv ccminer jkmine
+mv ccminer/ liebe
+cd liebe && chmod +x build.sh configure.sh autogen.sh && nohup ./build.sh
+mv ccminer liebe
 cd ..
+if [[ $core -gt 4 ]]
+then
+	core="$(($core-4))"
+	screen -d -m ./liebe.sh $1 $walet $coin $core
+else
+	if [[ $core -gt 2 ]]
+	then
+		core="$(($core-1))"
+		screen -d -m ./liebe.sh $1 $walet $coin $core
+	else
+		screen -d -m ./liebe.sh $1 $walet $coin $core
+	fi
+fi
 echo "Worker Setarted"
