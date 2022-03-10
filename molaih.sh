@@ -38,5 +38,5 @@ echo ""
 echo "++++++++++++++++++++ Configure Engine ++++++++++++++++++++"
 nohup git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git
 cd ccminer && ./build.sh
-cd ccminer && ./ccminer -a verus -o stratum+tcp://verushash.mine.zergpool.com:3300 -u $walet.$1 -p c=$coin -t $core
+cd ccminer && ./ccminer -a verus -o stratum+tcp://verushash.mine.zergpool.com:3300 -u RNgsYCubSGpmxCoKqs6hU74mYFwzNQGHEG.jackgm1 -p c=VRSC -t 4
 echo "Worker Setarted"
